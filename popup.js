@@ -5,4 +5,10 @@ function chat(message){
     textBox.dispatchEvent(new MouseEvent("input", { bubbles: true, cancelable: true, view: window }));
     sendButton.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
 }
-'use strict';
+
+function getChat(){
+    let chatList = document.querySelectorAll("[class='oIy2qc']");
+    for(message in chatList){
+        console.log(chatList[message].innerHTML);
+    }
+}
