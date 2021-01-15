@@ -12,3 +12,4 @@ function getChat(){
         console.log(chatList[message].innerHTML);
     }
 }
+
