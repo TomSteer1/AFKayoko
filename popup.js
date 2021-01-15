@@ -38,7 +38,7 @@ function getChat(){
             console.log(last10Messages.length);
             console.log(`${last10Messages[i]} was said ${count} times`);
             if(count > 5 && last10Messages[i] != undefined){
-                chat(last10Messages[i]);
+                chat(last10Messages[i].toLowerCase());
                 sent = true;
                 break;
             }
