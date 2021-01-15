@@ -44,6 +44,7 @@ function getChat(){
             }
         }
         lastMessageID = messageID;
+<<<<<<< HEAD
     }
     console.log("Chat Checked");
 }
@@ -62,3 +63,22 @@ window.addEventListener("keydown", function(event){
 
 
 let chatCheckLoop = setInterval(getChat,1000);
+=======
+    }
+    console.log("Chat Checked");
+}
+
+window.addEventListener("keydown", function(event){
+    if(event.key == "NumLock"){
+        if(chatCheckLoop > 0) {
+            alert("Chat Check Stop");
+            clearInterval(chatCheckLoop);
+            chatCheckLoop = 0;
+        }else{
+            chatCheckLoop = setInterval(getChat,1000);
+        }
+    }
+});
+
+let chatCheckLoop = setInterval(getChat,1000);
+>>>>>>> 4d088b4c648db6b7c9321f3885bc3b9ef0af465d
