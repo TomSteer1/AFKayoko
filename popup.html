@@ -1,9 +1,47 @@
 <html>
     <head>
+        <style>
+            *{
+                font-family:monospace;
+                box-sizing:border-box;
+            }
+            #toggleChatButton{
+                position: relative;
+                left: 9px;
+                width: 40%;
+                border-radius: 50px;
+                border: none;
+                background-color: #078bff;
+                text-align:center;
+                font-size: larger;
+            }
+            #injectButton{
+                position: relative;
+                right: 9px;
+                width: 40%;
+                border-radius: 50px;
+                border: none;
+                background-color: #e02814;
+                text-align:center;
+                outline: none;
+                font-size: larger;
+            }
+            h1{
+                text-align: center;
+            }
+            #buttons{
+                text-align: center;
+            }
+            button:focus { outline: none; }
+
+        </style>
     </head>
     <body style="width: 300px">
-        <button id="injectButton">Inject Auto Kayoko</button>
-        <button id="toggleChatButton">Toggle Auto Kayoko</button>
+        <h1>Auto Kayoko</h1>
+        <div id="buttons">
+            <button id="injectButton">Inject Auto Kayoko</button>
+            <button id="toggleChatButton">Toggle Auto Kayoko</button>
+        </div>
         <script src="popup.js"></script>
     </body>
 </html>

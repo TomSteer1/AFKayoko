@@ -5,6 +5,7 @@ let last10Messages = []
 let sent = true;
 let on = false;
 
+
 function countOccurrences (arr, val){
     let count = 0;
     for(let i = 0; i < arr.length ; i++){
@@ -65,14 +66,6 @@ function toggle(){
         document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "green";
     }
 }
-
-
-window.addEventListener("keydown", function(event){
-    if(event.key == "NumLock"){
-        toggle();
-    }
-});
-
 
 document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
 let chatCheckLoop = setInterval(getChat,1000);
