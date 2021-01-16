@@ -3,4 +3,5 @@
 TODO:
 
 - [x] Send a past message.
-- [ ] Get popup working with settings.
+- [x] Get popup working.
+- [ ] Add more control in settings
