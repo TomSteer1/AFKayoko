@@ -3,6 +3,7 @@ let lastMessageID = 0;
 let numberOfMessages = 0;
 let last10Messages = []
 let sent = true;
+let on = false;
 
 function countOccurrences (arr, val){
     let count = 0;
@@ -51,15 +52,17 @@ function getChat(){
 }
 
 function toggle(){
-    if(chatCheckLoop > 0) {
+    if(on){
         clearInterval(chatCheckLoop);
-        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red"
+        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
+        on = false;
         chatCheckLoop = 0;
     }else{
         let chatList = document.querySelectorAll("[class='oIy2qc']");
         lastMessageID = chatList.length-1;
+        on = true;
         chatCheckLoop = setInterval(getChat,1000);
-        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "green"
+        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "green";
     }
 }
 
@@ -70,5 +73,7 @@ window.addEventListener("keydown", function(event){
     }
 });
 
+
+document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
 let chatCheckLoop = setInterval(getChat,1000);
 clearInterval(chatCheckLoop);
