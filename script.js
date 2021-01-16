@@ -1,10 +1,8 @@
-
 let lastMessageID = 0;
 let numberOfMessages = 0;
 let last10Messages = []
 let sent = true;
 let on = false;
-
 
 function countOccurrences (arr, val){
     let count = 0;
@@ -67,6 +65,8 @@ function toggle(){
     }
 }
 
-document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
-let chatCheckLoop = setInterval(getChat,1000);
-clearInterval(chatCheckLoop);
+if(window.location.hostname == "meet.google.com"){
+    document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
+    let chatCheckLoop = setInterval(getChat,1000);
+    clearInterval(chatCheckLoop);
+}
