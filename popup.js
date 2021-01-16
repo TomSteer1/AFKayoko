@@ -2,6 +2,9 @@ let lastMessageID = 0;
 let numberOfMessages = 0;
 let last10Messages = []
 let sent = true;
+
+$(".CYZUZd").css("background-color","green");
+
 function countOccurrences (arr, val){
     let count = 0;
     for(let i = 0; i < arr.length ; i++){
@@ -51,11 +54,12 @@ function getChat(){
 window.addEventListener("keydown", function(event){
     if(event.key == "NumLock"){
         if(chatCheckLoop > 0) {
-            alert("Chat Check Stop");
             clearInterval(chatCheckLoop);
+            $(".CYZUZd").css("background-color","red");
             chatCheckLoop = 0;
         }else{
             chatCheckLoop = setInterval(getChat,1000);
+            $(".CYZUZd").css("background-color","green");
         }
     }
 });
