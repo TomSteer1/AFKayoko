@@ -65,8 +65,6 @@ function toggle(){
     }
 }
 
-if(window.location.hostname == "meet.google.com"){
-    document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
-    let chatCheckLoop = setInterval(getChat,1000);
-    clearInterval(chatCheckLoop);
-}
+document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
+let chatCheckLoop = setInterval(getChat,1000);
+clearInterval(chatCheckLoop);
