@@ -31,7 +31,8 @@ function getChat(){
         if(messageID < 1)messageID = 1;
         let count = 0;
         for(messageID; messageID <= numberOfMessages ;messageID++){
-            let message = document.querySelectorAll("[class='oIy2qc']")[messageID];
+            let message = chatList[messageID];
+            message.style.backgroundColor = "pink";
             last10Messages[count] = message.innerHTML;
             count ++
         }
