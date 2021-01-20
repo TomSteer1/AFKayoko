@@ -1,8 +1,9 @@
 let lastMessageID = 0;
 let numberOfMessages = 0;
-let last10Messages = []
+let last10Messages = [];
 let sent = true;
 let on = false;
+let lastMessage = "";
 
 function countOccurrences (arr, val){
     let count = 0;
@@ -41,8 +42,20 @@ function getChat(){
             console.log(last10Messages.length);
             console.log(`${last10Messages[i]} was said ${count} times`);
             if(count > 5 && last10Messages[i] != undefined){
-                chat(last10Messages[i].toLowerCase());
                 sent = true;
+                if(last10Messages[i].toLowerCase().includes("yes") || last10Messages[i].toLowerCase().includes("no")){
+                    if(last10Messages[9].toLowerCase().includes("yes")){
+                        chat("yes");
+                        lastMessage = "yes";
+                    }else if(last10Messages[9].toLowerCase().includes("no")){
+                        chat("no");
+                        lastMessage = "no";
+                    }
+                }else if(last10Messages[i] != lastMessage){
+                    lastMessage = last10Messages[i];
+                    chat(last10Messages[i].toLowerCase());
+                }
+                console.log(lastMessage);
                 break;
             }
         }

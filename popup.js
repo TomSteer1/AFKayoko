@@ -29,4 +29,3 @@ function inject(){
         path: "/img/icon-inactive16.png"
     });
 }
-
