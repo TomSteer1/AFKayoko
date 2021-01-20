@@ -4,6 +4,8 @@
             *{
                 font-family:monospace;
                 box-sizing:border-box;
+                background-color: #121212;
+                color: white;
             }
             #toggleChatButton{
                 position: relative;
@@ -30,24 +32,64 @@
             }
             h1{
                 text-align: center;
+                font-size: xx-large;
             }
             p{
-                text-align: center;
                 font-size: large;
+            }
+            #warning{
+                text-align: center;
             }
             #buttons{
                 text-align: center;
             }
             button:focus { outline: none; }
 
+            .slider{
+                display: inline-flex;
+                width: 70%;
+                font-size: x-large;
+                align-content: center;
+            }
+
+
+            .sliderValue{
+                border-color: white;
+                border-style: solid;
+                padding: 5px;
+            }
+
         </style>
     </head>
     <body style="width: 300px">
-        <h1>AFKayoko</h1>
-        <p>Make sure to have the chat window open before injection</p>
+        <h1 id="title">AFKayoko</h1>
+        <p id="warning">Make sure to have the chat window open before injection</p>
         <div id="buttons">
-            <button id="injectButton">Enable injection</button>
+            <button id="injectButton">Inject</button>
             <button id="toggleChatButton">Toggle auto-send</button>
+            <div id="settings">
+                <h1>Setttings</h1>
+                <div>
+                    <p>Number of messages to wait before checking</p>
+                    <div class="slider">
+                    <input type="range" min="1" max="20" value="10" class="slider" id="checkEvery">
+                    <p id="checkEveryCount" class="sliderValue">10</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Number of required matches</p>
+                    <div class="slider">
+                    <input type="range" min="1" max="10" value="6" class="slider" id="matchCount">
+                    <p id="matchCountCount" class="sliderValue">6</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Do you want the checked messages to be highlighted</p>
+                    <div class="slider">
+                    <input type="checkbox" id="highlighting">
+                    </div>
+                </div>
+                </div>
         </div>
         <script src="popup.js"></script>
     </body>
