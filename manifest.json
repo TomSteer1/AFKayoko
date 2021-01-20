@@ -10,7 +10,7 @@
       "activeTab"
     ],
     "browser_action": {
-        "default_title": "AutoKayoko",
+        "default_title": "AFKayoko",
         "default_popup": "popup.html",
         "default_icon": {
           "128": "img/icon-inactive.png"
