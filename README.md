@@ -1,4 +1,4 @@
-# autokayoko
+# AFKayoko
 
 TODO:
 
