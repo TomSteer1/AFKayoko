@@ -5,7 +5,7 @@
     "version": "0.1",
     "description": "Automated answering Kayoko's questions.",
 
-    "web_accessible_resources": ["script.js"],
+    "web_accessible_resources": ["script.js","cookie.js"],
     "permissions": [
       "activeTab",
       "cookies",
