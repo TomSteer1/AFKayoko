@@ -39,21 +39,22 @@ function getChat(){
         }
         for(let i = 0;i<10;i++){
             count = countOccurrences(last10Messages,last10Messages[i]);
-            console.log(last10Messages.length);
             console.log(`${last10Messages[i]} was said ${count} times`);
             if(count > 5 && last10Messages[i] != undefined){
-                sent = true;
                 if(last10Messages[i].toLowerCase().includes("yes") || last10Messages[i].toLowerCase().includes("no")){
                     if(last10Messages[9].toLowerCase().includes("yes") || last10Messages[i].toLowerCase().includes("yes")){
                         chat("yes");
                         lastMessage = "yes";
+                        sent = true;
                     }else if(last10Messages[9].toLowerCase().includes("no") || last10Messages[i].toLowerCase().includes("no")){
                         chat("no");
                         lastMessage = "no";
+                        sent = true;
                     }
                 }else if(last10Messages[i] != lastMessage){
                     lastMessage = last10Messages[i];
                     chat(last10Messages[i].toLowerCase());
+                    sent = true;
                 }
                 console.log(lastMessage);
                 break;
