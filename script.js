@@ -44,10 +44,10 @@ function getChat(){
             if(count > 5 && last10Messages[i] != undefined){
                 sent = true;
                 if(last10Messages[i].toLowerCase().includes("yes") || last10Messages[i].toLowerCase().includes("no")){
-                    if(last10Messages[9].toLowerCase().includes("yes")){
+                    if(last10Messages[9].toLowerCase().includes("yes") || last10Messages[i].toLowerCase().includes("yes")){
                         chat("yes");
                         lastMessage = "yes";
-                    }else if(last10Messages[9].toLowerCase().includes("no")){
+                    }else if(last10Messages[9].toLowerCase().includes("no") || last10Messages[i].toLowerCase().includes("no")){
                         chat("no");
                         lastMessage = "no";
                     }
