@@ -9,7 +9,7 @@
     "permissions": [
       "activeTab",
       "cookies",
-      "*://*.google.com/"
+      "*://meet.google.com/"
     ],
     "browser_action": {
         "default_title": "AFKayoko",
