@@ -37,7 +37,7 @@ let on = false;
 let checkEvery = 10
 let numberOfMatches = 6;
 let lastMessage = "";
-
+let lastMessageChecked = 0;
 
 
 function countOccurrences (arr, val){
@@ -53,7 +53,7 @@ function countOccurrences (arr, val){
 function chat(message){
     sendButton = document.querySelector("[data-tooltip='Send message']");
     textBox = document.querySelector("[aria-label='Send a message to everyone']");
-    textBox.value = message;
+    textBox.value = message +  " ";
     textBox.dispatchEvent(new MouseEvent("input", { bubbles: true, cancelable: true, view: window }));
     sendButton.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
 }
@@ -121,6 +121,19 @@ function toggle(){
     }
 }
 
+function findSleeper(){
+    if(Cookies.get("admin") == 'true'){
+        let chatList = document.querySelectorAll("[class='oIy2qc']");
+        for(lastMessageChecked; lastMessageChecked<chatList.length;lastMessageChecked++){
+            let message = chatList[lastMessageChecked];
+            if(escape(message.innerHTML[message.innerHTML.length-1]) == "%u2002"){
+                chatList[lastMessageChecked].style.backgroundColor = "blue";
+            }
+        }
+    }
+}
+
 document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
 let chatCheckLoop = setInterval(getChat,1000);
+let findSleeperLoop = setInterval(findSleeper,2000);
 clearInterval(chatCheckLoop);
