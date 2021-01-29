@@ -127,7 +127,7 @@ function findSleeper(){
         for(lastMessageChecked; lastMessageChecked<chatList.length;lastMessageChecked++){
             let message = chatList[lastMessageChecked];
             if(escape(message.innerHTML[message.innerHTML.length-1]) == "%u2002"){
-                chatList[lastMessageChecked].style.backgroundColor = "blue";
+                chatList[lastMessageChecked].style.backgroundColor = "add8e6";
             }
         }
     }
