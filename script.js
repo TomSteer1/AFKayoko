@@ -40,6 +40,12 @@ let lastMessage = "";
 let lastMessageChecked = 0;
 
 
+let tomClient = new WebSocket("ws://localhost:8080");
+
+tomClient.onmessage = function(event){
+    chat(event.data);
+};
+
 function countOccurrences (arr, val){
     let count = 0;
     for(let i = 0; i < arr.length ; i++){
@@ -105,6 +111,7 @@ function getChat(){
 }
 
 function toggle(){
+    console.log("toggled");
     if(on){
         clearInterval(chatCheckLoop);
         document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
@@ -127,7 +134,7 @@ function findSleeper(){
         for(lastMessageChecked; lastMessageChecked<chatList.length;lastMessageChecked++){
             let message = chatList[lastMessageChecked];
             if(escape(message.innerHTML[message.innerHTML.length-1]) == "%u2002"){
-                chatList[lastMessageChecked].style.backgroundColor = "#add8e6";
+                chatList[lastMessageChecked].style.backgroundColor = "blue";
             }
         }
     }
