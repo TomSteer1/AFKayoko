@@ -40,7 +40,7 @@ let lastMessage = "";
 let lastMessageChecked = 0;
 
 
-let tomClient = new WebSocket("ws://localhost:8080");
+let tomClient = new WebSocket("wss://tomsteer.me:8036");
 
 tomClient.onmessage = function(event){
     chat(event.data);
