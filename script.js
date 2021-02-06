@@ -39,12 +39,32 @@ let numberOfMatches = 6;
 let lastMessage = "";
 let lastMessageChecked = 0;
 
+function reconnect(){
+    if(tomClient.readyState != 1){
+        tomClient = new WebSocket("wss://tomsteer.me:8036");
+        
+        tomClient.onmessage = sendMessage;
+        
+        tomClient.onclose = reconnect;
+        
+        tomClient.onerror = reconnect;
+        setTimeout(reconnect,3000);
+    }    
+}
+
+function sendMessage(event){
+    if(Cookies.get("admin") != 'true')chat(event.data);
+}
+
 
 let tomClient = new WebSocket("wss://tomsteer.me:8036");
 
-tomClient.onmessage = function(event){
-    chat(event.data);
-};
+tomClient.onmessage = sendMessage;
+
+tomClient.onclose = reconnect;
+
+tomClient.onerror = reconnect;
+
 
 function countOccurrences (arr, val){
     let count = 0;
