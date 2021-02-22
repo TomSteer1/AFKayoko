@@ -101,22 +101,18 @@ function getChat(){
         }
         lastMessageID = messageID;
     }
-    console.log("Chat Checked");
 }
 
 function toggle(){
     if(on){
-        clearInterval(chatCheckLoop);
-        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
-        Cookies.set("on","false");
         on = false;
-        chatCheckLoop = 0;
+        Cookies.set("on","false");
+        document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
     }else{
         let chatList = document.querySelectorAll("[class='oIy2qc']");
         lastMessageID = chatList.length-1;
         on = true;
         Cookies.set("on","true");
-        chatCheckLoop = setInterval(getChat,1000);
         document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "green";
     }
 }
@@ -133,7 +129,16 @@ function findSleeper(){
     }
 }
 
+let originalAppendChild = Element.prototype.appendChild;
+Element.prototype.appendChild = function(element){
+    if(element.classList.contains("oIy2qc") || element.classList.contains("ZNiiKc") || element.classList.contains("GDhqjd")){
+        if(on == true){
+            getChat();
+        }
+        findSleeper();
+    }
+    return originalAppendChild.call(this, element);
+}
+
+
 document.getElementsByClassName("CYZUZd")[0].style.backgroundColor = "red";
-let chatCheckLoop = setInterval(getChat,1000);
-let findSleeperLoop = setInterval(findSleeper,2000);
-clearInterval(chatCheckLoop);
